@@ -1,0 +1,8 @@
+{
+  "name": "IBSAR",
+  "description": "Modern AI healthcare platform for eye disease detection with fast and accurate diagnostic reports.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}

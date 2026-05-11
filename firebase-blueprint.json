@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "App user profile data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Scan": {
+      "title": "Scan",
+      "description": "Retinal scan data and AI analysis",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "patientName": { "type": "string" },
+        "patientId": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "gradcamImage": { "type": "string" },
+        "diagnosis": { "type": "string" },
+        "confidence": { "type": "number" },
+        "medicalReport": { "type": "string" },
+        "detected_diseases": { "type": "array" },
+        "probabilities": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "imageUrl", "diagnosis", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "Stores user profile information"
+    },
+    "/scans/{scanId}": {
+      "schema": "Scan",
+      "description": "Stores retinal scan analysis results"
+    }
+  }
+}
